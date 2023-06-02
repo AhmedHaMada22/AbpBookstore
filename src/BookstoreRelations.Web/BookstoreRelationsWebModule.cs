@@ -92,7 +92,7 @@ public class BookstoreRelationsWebModule : AbpModule
         ConfigureVirtualFileSystem(hostingEnvironment);
         ConfigureLocalizationServices();
         ConfigureNavigationServices();
-        ConfigureAutoApiControllers();
+    
         ConfigureSwaggerServices(context.Services);
     }
     
@@ -181,14 +181,7 @@ public class BookstoreRelationsWebModule : AbpModule
         });
     }
 
-    private void ConfigureAutoApiControllers()
-    {
-        Configure<AbpAspNetCoreMvcOptions>(options =>
-        {
-            options.ConventionalControllers.Create(typeof(BookstoreRelationsApplicationModule).Assembly);
-        });
-    }
-
+   
     private void ConfigureSwaggerServices(IServiceCollection services)
     {
         services.AddAbpSwaggerGen(
