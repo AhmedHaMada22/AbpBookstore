@@ -92,7 +92,7 @@ public class BookstoreRelationsWebModule : AbpModule
         ConfigureVirtualFileSystem(hostingEnvironment);
         ConfigureLocalizationServices();
         ConfigureNavigationServices();
-    
+        ConfigureAutoApiControllers();
         ConfigureSwaggerServices(context.Services);
     }
     
@@ -181,7 +181,17 @@ public class BookstoreRelationsWebModule : AbpModule
         });
     }
 
-   
+    #region comment this region if you want to disable auto generate api without controller
+    private void ConfigureAutoApiControllers()
+    {
+        Configure<AbpAspNetCoreMvcOptions>(options =>
+        {
+            options.ConventionalControllers.Create(typeof(BookstoreRelationsApplicationModule).Assembly);
+        });
+    }
+
+    #endregion
+
     private void ConfigureSwaggerServices(IServiceCollection services)
     {
         services.AddAbpSwaggerGen(
