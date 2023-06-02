@@ -1,0 +1,27 @@
+﻿@page
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model BookstoreRelations.Web.Pages.Authors.CreateModal
+
+@{
+    Layout = null;
+}
+
+<form method="post" id="CreateAuthorModal" asp-page="/Authors/CreateModal">
+    <abp-modal>
+        <abp-modal-header title="New Author"></abp-modal-header>
+        <abp-modal-body>
+            <abp-tabs name="create-Author-modal-tabs">
+                <abp-tab title="Author Information" class="mt-3">
+                    <div id="book-information-wrapper" class="mt-3">
+                        <abp-input asp-for="Author.Name" label="Author Name" />
+                        <abp-input asp-for="Author.ShortBio" label="short bio"  />
+                        <abp-input asp-for="Author.BirthDate" type="date" label="Publish Date" />
+                   
+                    </div>
+                </abp-tab>
+               
+            </abp-tabs>
+        </abp-modal-body>
+        <abp-modal-footer buttons="@(AbpModalButtons.Cancel|AbpModalButtons.Save)"></abp-modal-footer>
+    </abp-modal>
+</form>

@@ -1,0 +1,3 @@
+is_global = true
+build_property.RootNamespace = BookstoreRelations
+build_property.ProjectDir = F:\Software Engineering\Gts\Relation\AbpBookstore\src\BookstoreRelations.HttpApi.Client\
